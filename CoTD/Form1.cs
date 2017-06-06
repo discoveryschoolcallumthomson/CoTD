@@ -16,7 +16,7 @@ namespace CoTD
         public static Dictionary<string, string> config = new Dictionary<string, string>();
         public static bool DEBUG = true;
 
-        public static Regex COTDMatcher = new Regex("codeURL");
+        public static Regex COTDMatcher = new Regex(">[a-z]{8}<");
 
         public Form1()
         {
@@ -51,6 +51,10 @@ namespace CoTD
                 {
                     return "asdfsadf >asdfasdf< asdfasdf";
                 }
+                if(keyName == "loginURL")
+                {
+                    return "<input name=\"user_password\"></input>";
+                }
             }
 
 
@@ -64,6 +68,7 @@ namespace CoTD
         {
             try
             {
+                MessageBox.Show(getPageTextFromConfig("codeURL"));
                 return COTDMatcher.Match(getPageTextFromConfig("codeURL")).Value.Substring(1, 8);
             }catch(Exception e) {
                 MessageBox.Show("Unable to get the CoTD, Are you connected to DSCoTD?");
