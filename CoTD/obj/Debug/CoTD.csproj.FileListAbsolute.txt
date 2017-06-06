@@ -28,3 +28,12 @@ D:\CoTD\CoTD\obj\Debug\CoTD.Properties.Resources.resources
 D:\CoTD\CoTD\obj\Debug\CoTD.csproj.GenerateResource.Cache
 D:\CoTD\CoTD\obj\Debug\CoTD.exe
 D:\CoTD\CoTD\obj\Debug\CoTD.pdb
+N:\Documents\git\CoTD\CoTD\bin\Debug\CoTD.exe.config
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.pdb
+N:\Documents\git\CoTD\CoTD\bin\Debug\CoTD.exe
+N:\Documents\git\CoTD\CoTD\bin\Debug\CoTD.pdb
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.csprojResolveAssemblyReference.cache
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.Form1.resources
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.Properties.Resources.resources
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.csproj.GenerateResource.Cache
+N:\Documents\git\CoTD\CoTD\obj\Debug\CoTD.exe
