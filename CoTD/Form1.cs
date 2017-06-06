@@ -14,6 +14,9 @@ namespace CoTD
     public partial class Form1 : Form
     {
         public static Dictionary<string, string> config = new Dictionary<string, string>();
+        public static bool DEBUG = true;
+
+        public static Regex COTDMatcher = new Regex("codeURL");
 
         public Form1()
         {
@@ -40,23 +43,48 @@ namespace CoTD
             webBrowser1.Refresh();
         }
 
+        public string getPageTextFromConfig(string keyName)
+        {
+            if(DEBUG)
+            {
+                if(keyName == "codeURL")
+                {
+                    return "asdfsadf >asdfasdf< asdfasdf";
+                }
+            }
+
+
+            loadPage(config[keyName]);
+            return webBrowser1.DocumentText;
+        }
+
+
+
+        public string getCoTD()
+        {
+            try
+            {
+                return COTDMatcher.Match(getPageTextFromConfig("codeURL")).Value.Substring(1, 8);
+            }catch(Exception e) {
+                MessageBox.Show("Unable to get the CoTD, Are you connected to DSCoTD?");
+            }
+
+            return null;
+        }
+
         public void init()
         {
-            // Suspend the screen.
-            webBrowser1.Url = new Uri(config["CodeURL"]);
-            webBrowser1.Refresh();
-            string s = webBrowser1.DocumentText;
+            string cotd = getCoTD();
        
-            if (s.Length > 0)
+            if (cotd != null && cotd.Length > 0)
             {
+                label1.Text = "COTD: " + cotd;
+                MessageBox.Show(cotd);
+
+                loadPage(config["loginURL"]);
                 
-
-                string sss = new Regex(">[a-z]{8}<").Match(s).Value.Substring(1, 8);
-
-                MessageBox.Show(sss);
-                webBrowser1.Url = new Uri(config["loginURL"]);
-                HtmlElementCollection inputObjects = webBrowser1.Document.GetElementsByTagName("user_password");
-                inputObjects[0].SetAttribute("",sss);
+                //HtmlElementCollection inputObjects = webBrowser1.Document.GetElementsByTagName("user_password");
+               // inputObjects[0].SetAttribute("",sss);
             }
             
         }
@@ -65,5 +93,7 @@ namespace CoTD
         {
             init();
         }
+
+        private void label1_Click(object sender, EventArgs e) {}
     }
 }
