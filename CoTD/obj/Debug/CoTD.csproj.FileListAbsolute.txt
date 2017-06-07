@@ -46,3 +46,4 @@ E:\CoTD\obj\Debug\CoTD.csprojResolveAssemblyReference.cache
 E:\CoTD\obj\Debug\CoTD.Form1.resources
 E:\CoTD\obj\Debug\CoTD.Properties.Resources.resources
 E:\CoTD\obj\Debug\CoTD.csproj.GenerateResource.Cache
+E:\CoTD\obj\Debug\CoTD.Preferences.resources

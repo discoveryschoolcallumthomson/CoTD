@@ -14,9 +14,17 @@ namespace CoTD
         [STAThread]
         static void Main()
         {
+            Config.loadConfig();
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(onExit);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+        }
+
+        static void onExit(object sender, EventArgs asdf)
+        {
+            Config.saveConfig();
         }
     }
 }

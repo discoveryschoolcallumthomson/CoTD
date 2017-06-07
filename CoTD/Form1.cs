@@ -23,7 +23,6 @@ namespace CoTD
         public Form1()
         {
             InitializeComponent();
-            Config.loadConfig();
             this.webBrowser1.Visible = false;
         }
 
@@ -116,6 +115,11 @@ namespace CoTD
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Preferences().Show();
         }
     }
 }
