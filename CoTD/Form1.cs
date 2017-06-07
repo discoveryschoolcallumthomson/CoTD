@@ -52,7 +52,7 @@ namespace CoTD
         {
             toolStripStatusLabel1.Text = "Grabbing CoTD";
             setDocumentLoadHandler(onCoTDPageLoad);
-            loadPageFromConfig(DEBUG ? "debugCodeURL" : "codeURL"); 
+            loadPageFromConfig(DEBUG ? Config.KEY_CODE_URL_DEBUG : Config.KEY_CODE_URL); 
         }
 
         public void onCoTDPageLoad(object sender, WebBrowserDocumentCompletedEventArgs asdf)
@@ -68,7 +68,7 @@ namespace CoTD
                     label1.Text = "COTD: " + COTD;
                     toolStripStatusLabel1.Text = "Logging in";
                     setDocumentLoadHandler(onLoginPageLoaded);
-                    loadPageFromConfig(DEBUG ? "debugLoginURL" : "loginURL");
+                    loadPageFromConfig(DEBUG ? Config.KEY_LOGIN_URL_DEBUG : Config.KEY_LOGIN_URL);
                 }
 
 
@@ -103,6 +103,11 @@ namespace CoTD
         public void onLoginComplete(object sender, WebBrowserDocumentCompletedEventArgs asdf)
         {
             toolStripStatusLabel1.Text = "You should now be logged in";
+
+            if(Config.getBoolean(Config.KEY_EXIT_ON_LOGIN))
+            {
+                this.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

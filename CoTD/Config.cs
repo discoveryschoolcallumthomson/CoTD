@@ -9,7 +9,10 @@ namespace CoTD
     class Config
     {
         public static string KEY_EXIT_ON_LOGIN = "exitOnLogin";
-
+        public static string KEY_CODE_URL_DEBUG = "debugCodeURL";
+        public static string KEY_CODE_URL = "codeURL";
+        public static string KEY_LOGIN_URL_DEBUG = "debugLoginURL";
+        public static string KEY_LOGIN_URL = "loginURL";
 
         private static Dictionary<string, string> config = new Dictionary<string, string>();
 
