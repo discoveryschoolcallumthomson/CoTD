@@ -13,7 +13,7 @@ namespace CoTD
 {
     public partial class Form1 : Form
     {
-        public static bool DEBUG = true;
+        public static bool DEBUG = false;
         public static Regex COTDMatcher = new Regex(">[a-z]{8}<");
 
         public static WebBrowserDocumentCompletedEventHandler oldEventHandle = null;
@@ -24,6 +24,7 @@ namespace CoTD
         {
             InitializeComponent();
             this.webBrowser1.Visible = false;
+            DEBUG = Config.getBoolean(Config.KEY_DEBUG);
         }
 
         public void loadPage(string url)
@@ -93,7 +94,7 @@ namespace CoTD
 
                 setDocumentLoadHandler(onLoginComplete);
 
-                HtmlElement submit = webBrowser1.Document.GetElementById("fsloginButton");
+                HtmlElement submit = webBrowser1.Document.GetElementById(Config.getString(Config.KEY_SUBMIT_BUTTON_ID));
                 submit.InvokeMember("Click");
             } catch (Exception e) {
                 toolStripStatusLabel1.Text = "Unable to login to CoTD";

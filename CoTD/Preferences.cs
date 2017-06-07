@@ -18,11 +18,13 @@ namespace CoTD
             FormClosing += new FormClosingEventHandler(onFormQuit);
 
             checkBox1.Checked = Config.getBoolean(Config.KEY_EXIT_ON_LOGIN);
+            checkBox2.Checked = Config.getBoolean(Config.KEY_DEBUG);
         }
 
         public void onFormQuit(object sender, FormClosingEventArgs asdf)
         {
             Config.put<Boolean>(Config.KEY_EXIT_ON_LOGIN, checkBox1.Checked);
+            Config.put<Boolean>(Config.KEY_DEBUG, checkBox2.Checked);
             Config.saveConfig();
         }
     }

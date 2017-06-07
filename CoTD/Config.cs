@@ -13,6 +13,9 @@ namespace CoTD
         public static string KEY_CODE_URL = "codeURL";
         public static string KEY_LOGIN_URL_DEBUG = "debugLoginURL";
         public static string KEY_LOGIN_URL = "loginURL";
+        public static string KEY_SUBMIT_BUTTON_ID = "submitButtonID";
+        public static string KEY_CODE_TEXTBOX_NAME = "codeTextboxName";
+        public static string KEY_DEBUG = "debug";
 
         private static Dictionary<string, string> config = new Dictionary<string, string>();
 
